@@ -9,22 +9,92 @@
 @section scripts
 {
     <script>
-        var datasource = [{
-            type: 'us', count: 20, date: '12-2013'
-        }, {
-            type: 'us', count: 10, date: '01-2014'
-        }, {
-            type: 'bug', count: 15, date: '02-2014'
-        }, {
-            type: 'bug', count: 23, date: '05-2014'
-        }];
+        var datasource = [
+  {
+      "createDate": "2015-05-23T00:00:00",
+      "releaseDate": "2015-01-27T00:00:00",
+      "isAlpha": true,
+      "isBeta": true,
+      "isStable": true,
+      "isWebsite": false,
+      "file": "\"/XamarinforVisualStudio/Windows/Xamarin.VisualStudio_3.9.289.msi\"",
+      "total": 57,
+      "version": "3.9.289"
+  },
+  {
+      "createDate": "2015-05-24T00:00:00",
+      "releaseDate": "2015-01-27T00:00:00",
+      "isAlpha": true,
+      "isBeta": true,
+      "isStable": true,
+      "isWebsite": false,
+      "file": "\"/XamarinforVisualStudio/Windows/Xamarin.VisualStudio_3.9.289.msi\"",
+      "total": 63,
+      "version": "3.9.289"
+  },
+  {
+      "createDate": "2015-05-25T00:00:00",
+      "releaseDate": "2015-01-27T00:00:00",
+      "isAlpha": true,
+      "isBeta": true,
+      "isStable": true,
+      "isWebsite": false,
+      "file": "\"/XamarinforVisualStudio/Windows/Xamarin.VisualStudio_3.9.289.msi\"",
+      "total": 65,
+      "version": "3.9.289"
+  },
+    {
+        "createDate": "2015-05-23T00:00:00",
+        "releaseDate": "2014-09-29T00:00:00",
+        "isAlpha": true,
+        "isBeta": true,
+        "isStable": false,
+        "isWebsite": false,
+        "file": "\"/XamarinforVisualStudio/Windows/Xamarin.VisualStudio_Setup-3.7.165.msi\"",
+        "total": 33,
+        "version": "3.7.165"
+    },
+  {
+      "createDate": "2015-05-24T00:00:00",
+      "releaseDate": "2014-09-29T00:00:00",
+      "isAlpha": true,
+      "isBeta": true,
+      "isStable": false,
+      "isWebsite": false,
+      "file": "\"/XamarinforVisualStudio/Windows/Xamarin.VisualStudio_Setup-3.7.165.msi\"",
+      "total": 25,
+      "version": "3.7.165"
+  },
+  {
+      "createDate": "2015-05-25T00:00:00",
+      "releaseDate": "2014-09-29T00:00:00",
+      "isAlpha": true,
+      "isBeta": true,
+      "isStable": false,
+      "isWebsite": false,
+      "file": "\"/XamarinforVisualStudio/Windows/Xamarin.VisualStudio_Setup-3.7.165.msi\"",
+      "total": 5,
+      "version": "3.7.165"
+  }
+];
 
         var chart = new tauCharts.Chart({
             data: datasource,
+            dimentions: {
+                createDate: {
+                    type: 'order',
+                    scale: 'period'
+                },
+                guide: {
+                    x: { tickPeriod: 'quarter', tickFormat: 'day' }
+                    // tickPeriod indicates that every tick is a quarter, while tickFormat sets how tick value will be displayed
+                    // In this example we will have quarters with first day of the quarter: 01-Jan-2014, 01-Apr-2014, 01-Jul-2014, 01-Oct-2014...
+                }
+            },
             type: 'line',
-            x: 'date',
-            y: 'count',
-            color: 'type' // there will be two lines with different colors on the chart
+            x: 'createDate',
+            y: 'total',
+            color: 'file'
         });
 
         chart.renderTo('#line');
