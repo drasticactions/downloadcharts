@@ -15,5 +15,15 @@ namespace DownloadCharts.Controllers
         {
             return View();
         }
+
+        public IActionResult China()
+        {
+            return View();
+        }
+
+        public IActionResult Usa()
+        {
+            return View();
+        }
     }
 }

@@ -27,7 +27,7 @@
   },
 
   "commands": {
-    "web": "Microsoft.AspNet.Server.Kestrel"
+    "web": "Microsoft.AspNet.Server.Kestrel --server.urls=http://10.1.16.14:5000"
   },
 
   "frameworks": {
